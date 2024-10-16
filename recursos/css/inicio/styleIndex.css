@@ -1,0 +1,133 @@
+.container{
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 2fr 1fr 1fr 1fr;
+    gap: 2%;
+}
+
+.seccionempresa{
+    grid-row: 2;
+    grid-column: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.infoempresa{
+    width: 95%;
+    height: 85%;
+    background-color: #3d3d3d;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.infoempresa h1{
+    color: white;
+    margin: 2%;
+    font-family: sans-serif;
+}
+
+p{
+    color: white;
+    margin: 2%;
+    font-size: large;
+    font-family: sans-serif;
+}
+.seccionproductos1{
+    grid-row: 3;
+    grid-column: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.infoproductos1{
+    width: 65%;
+    height: 80%;
+    background-color: #3d3d3d;
+    border-radius: 15px;
+    /* margin-left: 13.9%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly; */
+}
+.imagenproductos1{
+    width: 30%;
+    height: 80%;
+    background-color: #3d3d3d;
+    border-radius: 15px; 
+    margin-left: 2%;
+    
+}
+.imagenproductos1 img{
+    object-fit: fill;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+}
+.seccionproductos2{
+    grid-row: 4;
+    grid-column: 1;
+    /* display: inline; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.infoproductos2{
+    width: 65%;
+    height: 80%;
+    background-color: #3d3d3d;
+    border-radius: 15px;
+    /* margin-left: 2%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly; */
+}
+.imagenproductos2{
+    width: 30%;
+    height: 80%;
+    background-color: #3d3d3d;
+    border-radius: 15px; 
+    margin-right: 2%;
+}
+.imagenproductos2 img{
+    object-fit: fill;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+}
+
+@media (width > 1100px){
+    .infoempresa{
+        width: 80%;
+    }
+    .infoproductos1,.infoproductos2{
+        width: 60%;
+    }
+    .imagenproductos1,.imagenproductos2{
+        width: 20%;
+    }
+}
+
+@media (width < 650px){
+    .container{
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+        gap: 1%;
+    }
+    .seccionproductos1,.seccionproductos2{
+        flex-direction: column;
+    }
+    .infoempresa{
+        width: 85%;
+    }
+    .infoproductos1,.infoproductos2{
+        margin: 0;
+        width: 85%;
+        margin-bottom: 3%;
+    }
+    .imagenproductos1,.imagenproductos2{
+        margin: 0;
+        margin-top: 3%;
+        margin-bottom: 3%;
+        width: 85%;        
+    }
+}

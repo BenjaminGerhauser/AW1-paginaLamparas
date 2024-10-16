@@ -1,0 +1,233 @@
+:root {
+    --background-color: #cecece;
+    --text-color: #000000;
+    --color: #000;
+    --footer-bgcolor:#a3a3a3;
+}
+/* Modo oscuro */
+[data-theme="dark"] {
+    --background-color: #000;
+    --color: #fff;
+    --footer-bgcolor: rgb(43, 43, 44);
+}
+
+html{
+    box-sizing: border-box;
+}
+body {
+    background-color: var(--background-color);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    /* min-height: 180vh; */
+    justify-content: space-between;
+    /* align-items: center; */
+}
+main {
+    flex: 1;
+    height: 100%;
+    display: grid;
+    grid-template-rows: auto 1fr;
+}
+footer {
+    background-color: var(--footer-bgcolor);
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    /* width: 100%; */
+    font-size: 14px;
+    position: relative;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+footer ul {
+    padding: 0;
+    list-style: none;
+    display: flex;
+    align-items: start;
+    flex-direction:column;
+    justify-content: center;
+}
+footer a {
+    height: 100%;
+    text-decoration: none;
+    color: var(--color);
+    display: flex;
+    align-items: center;
+    justify-content: start;
+}
+.container {
+    grid-column: 1;
+    grid-row: 2;
+    background-color: var(--background-color);
+}
+.navegacion{
+    height: auto;
+    top: 0;
+    position: sticky;
+    grid-column: 1;
+    grid-row: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+    z-index: 10;
+    background-color: transparent;
+}
+
+.logo {
+    position: relative;
+    /* margin-left: 2%; */
+    /* margin-top: -5%; */
+    width: 11%;
+    height: 100%;
+    animation: mover 5s alternate linear;
+    z-index: 10;
+    /* box-shadow: 0px 60px 100px rgb(253, 255, 105,0.8); */
+}
+.logo::before{
+    clip-path: polygon(25% 0%, 75% 0%, 87% 48%, 100% 100%, 0 100%, 14% 46%);
+    content: '';
+    position: absolute;
+    top: 135%;
+    left: 50%;
+    width: 90%;
+    height: 380%;
+    background: rgb(253, 255, 105,0.5);
+    background:radial-gradient(circle, rgba(230, 215, 13, 0.6), rgba(247, 243, 2, 0));
+    transform: translate(-50%, -10%);
+    filter: blur(70px); /* Efecto de desenfoque suave para la luz */
+    z-index: -1;
+    opacity: 1;
+    animation: luz 5s alternate;
+}
+.logo img {
+    width: 100%;
+    /* filter: drop-shadow(7px 3px 4px rgb(247, 218, 56)); */
+}
+.brillo-desactivado::before{
+    clip-path: polygon(25% 0%, 75% 0%, 87% 48%, 100% 100%, 0 100%, 14% 46%);
+    content: '';
+    position: absolute;
+    top: 135%;
+    left: 50%;
+    width: 90%;
+    height: 80%;
+    background: radial-gradient(circle, rgba(255, 243, 71, 0.575), rgba(229, 233, 13, 0.384));
+    background: rgb(253, 255, 105,0.8);
+    transform: translate(-50%, -50%);
+    filter: blur(125px); /* Efecto de desenfoque suave para la luz */
+    z-index: -1;
+    opacity: 0;
+}
+/* animacion */
+@keyframes mover {
+    0% {
+        transform: rotate(-15deg);
+    }
+
+    10% {
+        transform: rotate(15deg);
+    }
+
+    20% {
+        transform: rotate(-10deg);
+    }
+
+    30% {
+        transform: rotate(10deg);
+    }
+
+    40% {
+        transform: rotate(-5deg);
+    }
+
+    50% {
+        transform: rotate(5deg);
+    }
+
+    60% {
+        transform: rotate(3deg);
+    }
+
+    70% {
+        transform: rotate(-3deg);
+    }
+
+    80% {
+        transform: rotate(1deg);
+    }
+
+    90% {
+        transform: rotate(-1deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+@keyframes luz{
+    0%{
+        opacity: 0;
+    }
+    20%{
+        opacity: 0.5;
+    }
+    40%{
+        opacity: 0.2;
+    }
+    60%{
+        opacity:0.7;
+    }
+    80%{
+        opacity: 0.5;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+
+/* responsive */
+@media (width > 1100px){
+    main {
+        grid-template-rows:100%;
+        grid-template-columns: 10% 90%;
+    }
+    .navegacion{
+        height: 100%;
+        position: relative;
+        grid-row: 1;
+        grid-column: 1;
+    }
+    .container{
+        grid-row: 1;
+        grid-column: 2;
+    }
+    .logo{
+        top: 0;
+        width: 75%;
+        height: auto;
+        position: sticky;
+        justify-content: space-evenly;
+    }
+    footer ul{
+        flex-direction: row;
+        justify-content: space-evenly;
+        gap: 50px;
+    }
+}
+@media (width < 650px){
+    .logo{
+        width: 18%;
+    }
+
+}
+@media (width < 400px){
+    .logo{
+        width: 20%;
+    }
+}
